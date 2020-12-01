@@ -1,0 +1,13 @@
+#jeuAffichage table, th
+{
+    border-style: double;
+    border-width: thick;
+}
+
+#jeuAffichage table td
+{
+    border-style: solid;
+    border-width: 2px;
+    margin: 5px;
+    text-align: center;
+}

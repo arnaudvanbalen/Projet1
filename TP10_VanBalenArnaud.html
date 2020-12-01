@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Mon petit classeur!</title>
+    <script src="TP10_VanBalenArnaud.js"></script>
+    <link rel="stylesheet" href="TP10_VanBalenArnaud.css">
+</head>
+<body onload="initialiserPage()">
+
+<!-- ***** FORMULAIRE ***** -->
+
+<form id="formJeu" action=# onSubmit='return ajouterJeu(this);'>
+    <fieldset>
+    <legend>Ajouter un jeu</legend>
+        <!-- nom -->
+        <label for="jeuNom">Nom : </label>
+            <input id="jeuNom" name="nom" type="text" required> <br>
+        <!-- fichier -->
+        <label for="jeuImage">Ajouter une image (XXX px / XXX px) : </label>
+            <input id="jeuImage" name="image" type="file" accept=".jpeg, .png, .jpg"> <br>
+        <!-- date de sortie -->
+        <label for="jeuDateSortie">Date de sortie : </label>
+            <input id="jeuDateSortie" name="sortie" type="date" required><br>
+        <!-- éditeur -->
+        <label for="Editeur">Éditeur : </label>
+            <select id="Editeur" name="editeur">
+                <option value="top" selected>Ubisoft</option>
+                <option value="cool">Electronic Arts</option>
+                <option value="bof">Blizzard</option>
+            </select><br>
+        <!-- duree -->
+        <label for="tempsDeJeu">Temps de jeu jusqu'ici : </label>
+            <input id="tempsDeJeu" name="duree" type="number" min="0.5" step="0.5" required><br>
+
+        <label for="tempsDeJeuTotal">Durée totale du jeu : </label>
+        <input id="tempsDeJeuTotal" name="dureeTotale" type="number" min="0.5" step="0.5" required><br>
+        <!-- description -->
+        <label for="jeuDescription">Description (optionelle) : </label>
+            <textarea id="jeuDescription" name="description" rows="4" cols="50"></textarea><br>
+        <!-- bouton -->
+        <input type="submit" value="Ajouter Jeu">
+        <input type="reset">
+    </fieldset>
+</form>
+<hr>
+
+
+<!-- ***** AFFICHAGE ***** -->
+
+<div>
+    <p><strong>Vos jeux :</strong></p>
+    <div id="jeuAffichage">
+    </div>
+    <br>
+</div>
+<hr>
+
+
+<!-- ***** FONCTIONNALITES ***** -->
+
+<!-- Annuler le dernier jeu ajouté -->
+<div id="annulation">
+    <p>Annuler la dernière insertion de jeu
+        <button type="button" onclick="annulerDerniereEntree();">Annuler</button></p>
+</div>
+<hr>
+
+<!-- Indiquer qu'un jeu est terminé-->
+<div id="jeu terminé">
+    <p>Fermer un jeu lorqu'il est terminé sur base de son nom (complet et sans faute!)
+        <input id="codeTacheResolue" type="text">
+        <button type="button" onclick="marquerTacheResolue();">Tâche Résolue</button></p>
+</div>
+<hr>
+
+<!-- Calculer la durée totale des jeux non terminés -->
+<div id="dureeJeuNonTermine">
+    <p>Calculer et afficher la durée totale nécessaire pour terminer les jeux.
+        <button type="button" onclick="afficherDureeTotaleJeu();">Calculer temps restante</button></p>
+</div>
+<hr>
+
+</div>
+</body>
+</html>
